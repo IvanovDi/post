@@ -7,9 +7,7 @@ use App\Repositories\Criteria\UserDataWithPost;
 use App\Repositories\PostRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Post;
-use App\Models\Comment;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -36,5 +34,33 @@ class UserController extends Controller
         $data = $this->postRepository->find($id)->toArray();
 
         return view('post.post', ['data' => $data]);
+    }
+
+    public function create()
+    {
+        return view('post.create_post');
+    }
+
+    public function store(Request $request)
+    {
+        $messages = [
+            'name.required' => 'Поле :attribute обязательно должно быть заполненно',
+            'description.max' => 'максимаольное допустимое колличество символов -  :max'
+        ];
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:50',
+            'description' => 'required|max:50'
+        ], $messages);
+
+        if($validator->fails()) {
+            return redirect()->route('create_post')->withErrors($validator)->withInput();
+        }
+
+        $this->postRepository->create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'user_id' => \Auth::user()->id
+        ]);
+        return redirect()->back();
     }
 }

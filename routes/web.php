@@ -11,6 +11,16 @@ Route::get('post/{id}', [
     'as' => 'post'
 ]);
 
+Route::get('create', [
+    'uses' => 'UserController@create',
+    'as' => 'create_post'
+]);
+
+Route::post('store', [
+    'uses' => 'UserController@store',
+    'as' => 'store'
+]);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
