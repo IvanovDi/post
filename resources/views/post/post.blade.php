@@ -15,4 +15,11 @@
             </div>
         </div>
     </div>
+
+    <style>
+        body {
+            background: url("/images/bg1.jpg");
+            background-size: cover;
+        }
+    </style>
 @endsection

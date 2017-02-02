@@ -6,11 +6,12 @@
             <div class="col-md-10">
                 <h1 style="color : red;">This is page of Posts</h1>
                 {{--{!! dd($data) !!}--}}
-                <div class="bg-info">
                     @foreach($data as $item)
                         @foreach($item['posts'] as $post)
-                            <h2 class="text-primary text-capitalize bg-info  ">{!! $post['name'] !!}</h2>
-                            <p class="bg-info"><a href="{!! route('post', $post) !!}">{!! $post['description'] !!}</a></p>
+                            <div  class="list-group">
+                                <h2 class="color_white list-group-item active list-group-item-heading">{!! $post['name'] !!}</h2>
+                                <p class="white_c list-group-item-text"><a href="{!! route('post', $post) !!}">{!! $post['description'] !!}</a></p>
+                            </div>
                         @endforeach
                     @endforeach
                 </div>
@@ -22,5 +23,21 @@
             </div>
         </div>
     </div>
+
+    <style>
+        body {
+            background: url("/images/bg1.jpg");
+            background-size: cover;
+        }
+        .color_white {
+            background: darkgrey !important;
+            color: #000 !important;
+        }
+
+        a {
+            color: #fff !important;
+            font-size: 25px;
+        }
+    </style>
 
 @stop

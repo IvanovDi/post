@@ -49,7 +49,7 @@ class UserController extends Controller
         ];
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50',
-            'description' => 'required|max:50'
+            'description' => 'required|max:150'
         ], $messages);
 
         if($validator->fails()) {
@@ -61,6 +61,6 @@ class UserController extends Controller
             'description' => $request->input('description'),
             'user_id' => \Auth::user()->id
         ]);
-        return redirect()->back();
+        return redirect()->route('show');
     }
 }
