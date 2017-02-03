@@ -24,7 +24,7 @@
 
 <body>
 <div id="app">
-        <nav class="navbar navbar-default navbar-static-top" style="background: lightblue;">
+        <nav class="navbar navbar-default navbar-static-top nav_bootom_0" style="background: lightblue;">
             <div class="container">
                 <div class="navbar-header">
 
@@ -80,10 +80,22 @@
             </div>
         </nav>
 
-    @yield('content')
 </div>
+<div class="jumbotron jumbotron_img"></div>
+@yield('content')
 
 <!-- Scripts -->
 <script src="/js/app.js"></script>
+<style>
+    .nav_bootom_0 {
+        margin-bottom: 0!important;
+    }
+    .jumbotron_img {
+        background: url("/images/music.png") no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 30em;
+    }
+</style>
 </body>
 </html>
