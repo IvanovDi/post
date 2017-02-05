@@ -10,6 +10,9 @@
                     <div class="panel-body">
                         <h2>{!! $data['name'] !!}</h2>
                     </div>
+                    <div class="panel_body">
+                        <img src="{{'../images/' . $data['media']}}" height="250" width="550" alt="music">
+                    </div>
                     <div class="panel-footer">
                         <p>{!! $data['description'] !!}</p>
                     </div>

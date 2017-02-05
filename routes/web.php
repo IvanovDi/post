@@ -25,4 +25,14 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::get('/home', 'HomeController@index');
+
+    Route::get('about', [
+        'uses' => 'UserController@about',
+        'as' => 'about'
+    ]);
+
+    Route::get('video', [
+        'uses' => 'UserController@video',
+        'as' => 'video'
+    ]);
 });
