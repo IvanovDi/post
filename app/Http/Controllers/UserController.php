@@ -7,6 +7,7 @@ use App\Repositories\Criteria\UserDataWithPost;
 use App\Repositories\PostRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -64,11 +65,9 @@ class UserController extends Controller
             'description' => 'required|max:150'
         ], $messages);
         //возвращение ошибок при добавлении файлов
-
         if($validator->fails()) {
             return redirect()->route('create_post')->withErrors($validator)->withInput();
         }
-
 
         //работа с media files
         if($request->hasFile('media')) {
@@ -76,7 +75,7 @@ class UserController extends Controller
             $mediaFileName = $this->generateRandomString() . $request->file('media')->getClientOriginalName();
             Storage::disk('local');
             Storage::put($mediaFileName, $media);
-        }
+            }
 
 
 
@@ -98,6 +97,25 @@ class UserController extends Controller
     public function video()
     {
         return view('post.video');
+    }
+
+    public function contact()
+    {
+        return view('post.contacts');
+    }
+
+    public function sendMail(Request $request)
+    {
+        //todo доделать отправку сообщений
+        $from = $request->input('email');
+        Mail::raw($request->input('message'), function($message, $from)
+        {
+            $message->from($from, 'test');
+
+            $message->to('olga.com', 'Ольга Иванова')->subject('Привет!');
+        }, $request);
+
+        return redirect()->back();
     }
 
 

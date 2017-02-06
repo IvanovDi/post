@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/post/style.css">
 
     <!-- Scripts -->
     <script>
@@ -57,10 +58,10 @@
                         @else
 
 
-                            <li><a href="">News</a></li>
+                            <li><a href="{{route('show')}}">News</a></li>
                             <li><a href="{{route('about')}}">About Us</a></li>
                             <li><a href="{{route('video')}}">Video</a></li>
-                            <li><a href="">Contacts</a></li>
+                            <li><a href="{{route('contacts')}}">Contacts</a></li>
 
 
 
@@ -102,8 +103,8 @@
         margin-bottom: 0!important;
     }
     .jumbotron_img {
-        background: url("/images/music.jpg") no-repeat;
-        background-position: center;
+        background: url("/images/img2.jpg") no-repeat;
+        background-position: 0 -130px;
         background-size: cover;
         min-height: 30em;
     }

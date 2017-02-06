@@ -35,4 +35,14 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'UserController@video',
         'as' => 'video'
     ]);
+
+    Route::get('contacts', [
+        'uses' => 'UserController@contact',
+        'as' => 'contacts'
+    ]);
+
+     Route::get('mail', [
+         'uses' => 'UserController@sendMail',
+         'as' => 'mail'
+     ]);
 });

@@ -1,0 +1,31 @@
+.grey_bg {
+    background: lightgrey;
+}
+
+body {
+    background: url("/images/bg1.jpg");
+    background-size: cover;
+    color: #fff !important;
+}
+.color_white {
+    background: darkgrey !important;
+    color: #000 !important;
+}
+
+a {
+    color: #fff !important;
+    font-size: 25px;
+}
+
+.title, .description{
+    color: #fff;
+}
+.title {
+    font-size: 4em;
+}
+.description {
+    font-size: 2em;
+}
+
+
+

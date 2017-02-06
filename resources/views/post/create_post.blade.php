@@ -38,7 +38,7 @@
                                 <label for="password" class="col-md-4 control-label">Media</label>
 
                                 <div class="col-md-6">
-                                    <input class="form-control" type="file" name="media" id="media" multiple accept="image/*, video/*">
+                                    <input class="form-control" type="file" name="media" id="media" multiple accept="image/*,video/*">
                                 </div>
                             </div>
 
@@ -55,13 +55,4 @@
             </div>
         </div>
     </div>
-
-    <style>
-        body {
-            background: url("/images/bg1.jpg");
-            background-size: cover;
-        }
-    </style>
-
-
 @endsection
