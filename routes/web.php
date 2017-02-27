@@ -49,3 +49,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('hello', function() {
     return 'Hello World';
 });
+
+
+Route::get('dima', function() {
+    return 'Hello World';
+});
