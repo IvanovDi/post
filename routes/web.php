@@ -46,3 +46,6 @@ Route::group(['middleware' => 'auth'], function () {
          'as' => 'mail'
      ]);
 });
+Route::get('hello', function() {
+    return 'Hello World';
+});
