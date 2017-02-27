@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMail;
 use App\Repositories\Criteria\PostWithComment;
 use App\Repositories\Criteria\UserDataWithPost;
 use App\Repositories\PostRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -106,15 +107,9 @@ class UserController extends Controller
 
     public function sendMail(Request $request)
     {
-        //todo доделать отправку сообщений
-        $from = $request->input('email');
-        Mail::raw($request->input('message'), function($message, $from)
-        {
-            $message->from($from, 'test');
-
-            $message->to('olga.com', 'Ольга Иванова')->subject('Привет!');
-        }, $request);
-
+        $name = $request->input('name');
+        $msg = $request->input('message');
+        Mail::to('olga@gmail.com')->send(new SendMail($name, $msg));
         return redirect()->back();
     }
 
