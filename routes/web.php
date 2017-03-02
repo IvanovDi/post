@@ -52,5 +52,5 @@ Route::get('hello', function() {
 
 
 Route::get('dima', function() {
-    return 'Hello World';
+    return 'Hello World dimka';
 });
