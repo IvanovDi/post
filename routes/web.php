@@ -52,5 +52,7 @@ Route::get('hello', function() {
 
 
 Route::get('dima', function() {
-    return 'Hello World dimka and Temka';
+    return 'hi i am dimka';
 });
+
+
