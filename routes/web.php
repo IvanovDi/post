@@ -55,4 +55,8 @@ Route::get('dima', function() {
     return 'hi i am dimka';
 });
 
+Route::post('ivanov', function() {
+    return 'education for git flow in smartgit ';
+});
+
 
